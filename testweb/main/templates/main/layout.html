@@ -1,0 +1,45 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+    @font-face {
+        font-family: 'rubik';
+        src: url('{% static 'main/font/RubikDoodleShadow-Regular.ttf' %}')  format('truetype');
+    }
+    @font-face {
+        font-family: 'lobster';
+        src: url('{% static 'main/font/Lobster.ttf' %)  format('truetype');
+    }
+    </style>
+    <link rel="stylesheet" href="{% static 'main/css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/fontawesome-free-6.7.2-web/all.min.css' %}">
+</head>
+<body>
+    <aside>
+        <a class="navbar-brand" style="color: rgb(3, 95, 201); font-family: rubik; font-size: 20pt;" href="#">
+            Fly Market
+        </a>
+        <span class="slogon"><br/>Твоя жизнь, твоя цена</span>
+        <h3>Навигация</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li><i class="fa-solid fa-house"></i> Главная</li></a>
+            <a href="{% url 'about' %}"><li><i class="fa-solid fa-circle-exclamation"></i> Про нас</li></a>
+            <a href="{% url 'news_home' %}"><li><i class="fa-solid fa-newspaper"></i> Новости</li></a>
+            <a href=""><li><i class="fa-solid fa-address-book"></i> Контакты</li></a>
+            {% block buttonadd %}{% endblock %}
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
